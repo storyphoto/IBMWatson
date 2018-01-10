@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+    
+    <script>
+      $(document).ready(function() {
+        $("#btnQuery").click(function () {
+          $.ajax({
+            url: "/Conversation",
+            type: "GET",
+            data: {'query' : $("#txtQuery").val(), 'context' : $("#divResult").data("context") }, // request is the value of search input
+            success: function (data) {
+              $("#divResult").html($("#divResult").html() + "<br/>" + data.output.text);
+              $("#divResult").data("context", data.context);
+            }
+          });
+
+      });
+
+      
+    });
+
+  </script>
+  </head>
+  <body>
+    
+
+   <input type="text" id="txtQuery" />
+   <a href="#" id="btnQuery">질의</a>
+   <br/>
+
+  
+   <div id="divResult"></div>
+
+  </body>
+</html>

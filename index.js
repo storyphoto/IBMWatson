@@ -4,10 +4,6 @@ var bodyParser     = require("body-parser");
 var methodOverride = require("method-override");
 var app = express();
 
-// DB setting
-// mongoose.connect(process.env.MONGO_DB, { useMongoClient: true });
-mongoose.connect( "mongodb://jaepyo:1234@ds129146.mlab.com:29146/billing_managements"
-  , { useMongoClient: true });
 
 var db = mongoose.connection;
 db.once("open", function(){
@@ -26,9 +22,9 @@ app.use(methodOverride("_method"));
 
 // Routes (*redirect할때 주의)
 app.use("/", require("./routes/home"));
-app.use("/contacts", require("./routes/contacts"));
-app.use("/CreditCardIssuerList", require("./routes/CreditCardIssuerList"));
-app.use("/mycardlists", require("./routes/mycardlists"));
+// app.use("/contacts", require("./routes/contacts"));
+// app.use("/CreditCardIssuerList", require("./routes/CreditCardIssuerList"));
+// app.use("/mycardlists", require("./routes/mycardlists"));
 app.use("/Conversation", require("./routes/Conversation"));
 
 

@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 
-// Routes (*redirect할때 주의)
+// Routes (*redirect할때 주 의)
 app.use("/", require("./routes/home"));
 // app.use("/contacts", require("./routes/contacts"));
 // app.use("/CreditCardIssuerList", require("./routes/CreditCardIssuerList"));
